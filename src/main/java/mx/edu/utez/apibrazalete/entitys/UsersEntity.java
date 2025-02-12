@@ -1,18 +1,30 @@
 package mx.edu.utez.apibrazalete.entitys;
 
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "users")
-public class Users {
+public class UsersEntity {
 
     @Id
     private String id;
+    //@NotBlank
     private String username;
     @Indexed(unique = true)
     private String email;
     private String password;
+
+    private String rolId;
+
+    public String getRolId() {
+        return rolId;
+    }
+
+    public void setRolId(String rolId) {
+        this.rolId = rolId;
+    }
 
     // Getters y Setters
     public String getId() {

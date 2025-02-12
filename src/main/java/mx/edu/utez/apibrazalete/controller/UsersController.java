@@ -1,7 +1,7 @@
 package mx.edu.utez.apibrazalete.controller;
 
-import mx.edu.utez.apibrazalete.entitys.Users;
-import mx.edu.utez.apibrazalete.repository.UsersRepository;
+import jakarta.validation.Valid;
+import mx.edu.utez.apibrazalete.entitys.UsersEntity;
 import mx.edu.utez.apibrazalete.service.UsersServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,17 +15,17 @@ public class UsersController {
     private UsersServices usersServices;
 
     @GetMapping()
-    public List<Users> getAllUsers() {
+    public List<UsersEntity> getAllUsers() {
         return usersServices.getAllUsers();
     }
 
     @PostMapping()
-    public Users createUser(@RequestBody Users user) {
+    public UsersEntity createUser( @RequestBody UsersEntity user) {
         return usersServices.addUser(user);
     }
 
     @GetMapping("/{id}")
-    public Users getUserById(@PathVariable("id") String id) {
+    public UsersEntity getUserById(@PathVariable("id") String id) {
         return usersServices.getUserById(id);
     }
 

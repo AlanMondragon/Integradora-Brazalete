@@ -1,12 +1,12 @@
 package mx.edu.utez.apibrazalete.repository;
 
-import mx.edu.utez.apibrazalete.entitys.Users;
+import mx.edu.utez.apibrazalete.entitys.UsersEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UsersRepository extends MongoRepository<Users, String> {
+public interface UsersRepository extends MongoRepository<UsersEntity, String> {
 
-    Users findByUsername(String username);
+    UsersEntity findByUsername(String username);
 
 }

@@ -1,6 +1,6 @@
 package mx.edu.utez.apibrazalete.service;
 
-import mx.edu.utez.apibrazalete.entitys.Users;
+import mx.edu.utez.apibrazalete.entitys.UsersEntity;
 import mx.edu.utez.apibrazalete.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,16 +14,16 @@ public class UsersServices {
     @Autowired
     private UsersRepository usersRepository;
 
-    public List<Users> getAllUsers(){
+    public List<UsersEntity> getAllUsers(){
         return usersRepository.findAll();
     }
 
-    public Users getUserById(String id){
-        Optional<Users> user = usersRepository.findById(id);
+    public UsersEntity getUserById(String id){
+        Optional<UsersEntity> user = usersRepository.findById(id);
         return user.orElse(null);
     }
 
-    public Users addUser(Users user){
+    public UsersEntity addUser(UsersEntity user){
         return usersRepository.save(user);
     }
 
